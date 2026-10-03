@@ -1,0 +1,16 @@
+# Node
+node_modules/
+.next/
+out/
+build/
+
+# Env
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+
+# Logs
+*.log
