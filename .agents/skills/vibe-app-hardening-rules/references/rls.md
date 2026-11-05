@@ -1,34 +1,28 @@
----
-description: Row Level Security — enable RLS on every table, write explicit policies, never bypass with service_role on the client
-globs: "**/*.{ts,tsx,sql}"
-alwaysApply: true
----
-
 # Supabase Row Level Security (RLS)
 
 - Enable RLS on every table the moment you create it.
-  Why: A table without RLS is readable and writable by anyone holding the anon key.
+  *Why:* A table without RLS is readable and writable by anyone holding the anon key.
 
 - Write explicit `create policy` statements for `select`, `insert`, `update`, and `delete`. No policy means no access once RLS is on.
-  Why: RLS defaults to deny. Skipping a policy silently breaks your app's queries.
+  *Why:* RLS defaults to deny. Skipping a policy silently breaks your app's queries.
 
 - Scope rows to the current user with `auth.uid()` instead of trusting an id passed from the client.
-  Why: `auth.uid()` comes from the verified JWT; a client-supplied id can be anything.
+  *Why:* `auth.uid()` comes from the verified JWT; a client-supplied id can be anything.
 
 - Never use the `service_role` key from client-side code, and never use it in Server Actions to run user-initiated writes.
-  Why: It turns off the only thing protecting your data.
+  *Why:* It turns off the only thing protecting your data.
 
 - When you must use `service_role` in a Route Handler, re-check the caller's identity and authorization yourself before acting.
-  Why: RLS is off for that client, so your handler is the only access control left.
+  *Why:* RLS is off for that client, so your handler is the only access control left.
 
 - Keep all schema changes in SQL migration files under `supabase/migrations/`.
-  Why: Migrations are versioned and reviewable; changes made in the dashboard drift from the codebase and get lost.
+  *Why:* Migrations are versioned and reviewable; changes made in the dashboard drift from the codebase and get lost.
 
 - Reference `auth.uid()` in policies, not the email column.
-  Why: Emails change; `auth.uid()` is the immutable user reference.
+  *Why:* Emails change; `auth.uid()` is the immutable user reference.
 
 - Give foreign-key columns matching policies so child rows inherit the same ownership checks as their parents.
-  Why: A protected parent table is still exposed through its unprotected child.
+  *Why:* A protected parent table is still exposed through its unprotected child.
 
 ```sql
 -- 0001_profiles.sql
