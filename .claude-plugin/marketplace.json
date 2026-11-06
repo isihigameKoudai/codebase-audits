@@ -1,0 +1,15 @@
+{
+  "name": "codebase-audits",
+  "description": "Security review and hardening skills for AI-generated (vibe-coded) Next.js + Supabase apps.",
+  "owner": {
+    "name": "Koudai Ishigame",
+    "url": "https://github.com/isihigameKoudai"
+  },
+  "plugins": [
+    {
+      "name": "codebase-audits",
+      "source": "./",
+      "description": "Threat-model-first security review workflow plus hardening rules for secrets, RLS, authorization and query performance."
+    }
+  ]
+}

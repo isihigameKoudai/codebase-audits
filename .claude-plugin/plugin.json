@@ -1,0 +1,15 @@
+{
+  "name": "codebase-audits",
+  "displayName": "Codebase Audits",
+  "version": "1.0.0",
+  "description": "Threat-model-first security review and hardening rules for AI-generated (vibe-coded) Next.js + Supabase apps.",
+  "author": {
+    "name": "Koudai Ishigame",
+    "url": "https://github.com/isihigameKoudai"
+  },
+  "homepage": "https://github.com/isihigameKoudai/codebase-audits",
+  "repository": "https://github.com/isihigameKoudai/codebase-audits",
+  "license": "MIT",
+  "keywords": ["security", "code-review", "security-audit", "nextjs", "supabase", "vibe-coding"],
+  "skills": ["./.agents/skills/"]
+}
