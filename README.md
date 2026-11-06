@@ -79,7 +79,21 @@ This is why this report contains **fewer findings than a scanner**, and why each
 
 ## The skills
 
-Both are **Agent Skills** — the open format (SKILL.md) read by Codex, Cursor, GitHub Copilot, Claude Code and ~70 other tools.
+Both are **Agent Skills** — the open format (`SKILL.md`) read by Codex, Cursor, GitHub Copilot, Claude Code and 20+ other tools.
+
+**Any Agent Skills client** — one command:
+
+```bash
+npx skills add isihigameKoudai/codebase-audits
+```
+
+**Claude Code** — install as a plugin:
+
+```bash
+/plugin install codebase-audits --marketplace isihigameKoudai/codebase-audits
+```
+
+**Or clone and copy:**
 
 ```bash
 git clone https://github.com/isihigameKoudai/codebase-audits /tmp/codebase-audits
@@ -88,6 +102,8 @@ cp -r /tmp/codebase-audits/.agents/skills/* .agents/skills/
 ```
 
 Then ask your agent to *"review this app for security issues"* (review skill) or just let the hardening rules apply while it writes code.
+
+Listed on [skills.sh](https://www.skills.sh/isihigamekoudai/codebase-audits).
 
 > Earlier versions of this repo shipped these as `.cursorrules` / `.mdc` files. `.cursorrules` is legacy — Cursor's own docs say so — and Cursor-only rules reach one tool. Agent Skills reach the whole ecosystem.
 
